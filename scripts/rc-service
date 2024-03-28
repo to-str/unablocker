@@ -1,0 +1,3 @@
+#!/bin/sh
+# replacement for alpine's rc-service, for the adblocker script
+pgrep unbound
