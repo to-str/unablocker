@@ -1,2 +1,5 @@
-#15 3 * * * unbound-adblock.sh -D -O alpine -F curl -W /etc/unbound/adblock.rpz > /dev/stdout
-* * * * * unbound-adblock.sh -n -D -O alpine -F curl -W /etc/unbound/adblock.rpz > /dev/stdout
+# initial run of container
+@reboot until /usr/local/bin/rc-service; do echo "unbound not ready, sleeping..."; sleep 5; done && unbound-adblock.sh -D -O alpine -F curl -W /etc/unbound/adblock.rpz > /dev/stdout
+
+# periodic updates during operation
+15 3 * * * unbound-adblock.sh -D -O alpine -F curl -W /etc/unbound/adblock.rpz > /dev/stdout

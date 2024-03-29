@@ -4,10 +4,10 @@ RUN apk add --no-cache unbound openssl ripgrep mawk loksh coreutils doas curl ta
 	rm -f /etc/unbound/unbound.conf
 
 RUN touch /etc/unbound/adblock.rpz
+RUN touch /etc/unbound/custom.conf
 
 COPY unablocker.crontab /tmp/unablocker.crontab
 RUN /usr/bin/crontab /tmp/unablocker.crontab
-RUN /usr/sbin/crond -l 0 -L /var/log/cron.log
 
 COPY unbound.conf /etc/unbound/unbound.conf
 COPY doas.conf /etc/doas.conf

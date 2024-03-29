@@ -13,10 +13,5 @@ unbound-anchor -a /etc/unbound/root.key
 curl -o /etc/unbound/root.hints https://www.internic.net/domain/named.cache
 chown -R unbound:unbound /etc/unbound
 
-
-exec unbound -dp &
-
-#unbound-adblock.sh -D -O alpine -F curl -W /etc/unbound/adblock.rpz
-#/usr/sbin/crond -f -d 8
-
-fg %1
+/usr/sbin/crond -f -d 6 &
+exec unbound -dvp
