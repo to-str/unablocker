@@ -1,1 +1,2 @@
-15 3 * * * unbound-adblock.sh -D -O alpine -F curl -W /etc/unbound/adblock.rpz > /dev/stdout
+#15 3 * * * unbound-adblock.sh -D -O alpine -F curl -W /etc/unbound/adblock.rpz > /dev/stdout
+* * * * * unbound-adblock.sh -n -D -O alpine -F curl -W /etc/unbound/adblock.rpz > /dev/stdout

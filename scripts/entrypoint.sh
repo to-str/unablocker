@@ -16,7 +16,7 @@ chown -R unbound:unbound /etc/unbound
 
 exec unbound -dp &
 
-unbound-adblock.sh -D -O alpine -F curl -W /etc/unbound/adblock.rpz
-/usr/sbin/crond -f -d 0
+#unbound-adblock.sh -D -O alpine -F curl -W /etc/unbound/adblock.rpz
+#/usr/sbin/crond -f -d 8
 
 fg %1

@@ -7,6 +7,7 @@ RUN touch /etc/unbound/adblock.rpz
 
 COPY unablocker.crontab /tmp/unablocker.crontab
 RUN /usr/bin/crontab /tmp/unablocker.crontab
+RUN /usr/sbin/crond -l 0 -L /var/log/cron.log
 
 COPY unbound.conf /etc/unbound/unbound.conf
 COPY doas.conf /etc/doas.conf
