@@ -5,7 +5,7 @@ services:
     container_name: unablocker
     volumes:
       # map adblock.rpz, so it persists across container restarts
-      - ./data/adblock.rpz/:/etc/unbound/adblock.rpz
+      - ./data/adblock.rpz:/etc/unbound/adblock.rpz
       - ./custom.conf:/etc/unbound/custom.conf #optional
       ## if you want to change more basic aspects
       #- ./unbound.conf:/etc/unbound/unbound.conf
