@@ -19,6 +19,22 @@ docker pull tostr7191/unablocker:latest
 docker run -dit -p53:53/udp --name unablocker tostr7191/unablocker:latest
 ```
 
+With docker compose:
+```
+---
+services:
+  unablocker:
+    image: tostr7191/unablocker:latest
+    container_name: unablocker
+    volumes:
+      - ./custom.conf:/etc/unbound/custom.conf #optional
+      ## if you want to change more basic aspects
+      #- ./unbound.conf:/etc/unbound/unbound.conf
+    ports:
+      - 53:53/udp
+    restart: unless-stopped
+```
+
 Unbound looks for `/etc/unbound/custom.conf`, which is empty by default. If you just want to add some configuration for your local network, this would be a good place to put it. In this way your custom config is separate from the core config, which might change. It is included at the end of the `server:`-block.
 
 ```

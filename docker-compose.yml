@@ -1,0 +1,12 @@
+---
+services:
+  unablocker:
+    image: tostr7191/unablocker:latest
+    container_name: unablocker
+    volumes:
+      - ./custom.conf:/etc/unbound/custom.conf #optional
+      ## if you want to change more basic aspects
+      #- ./unbound.conf:/etc/unbound/unbound.conf
+    ports:
+      - 53:53/udp
+    restart: unless-stopped
