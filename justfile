@@ -8,6 +8,10 @@
         docker run -dit \
         --name unablocker_dev -p1337:53/udp tostr7191/unablocker:latest
 
+@run-custom: rm
+        docker run -dit --name unablocker_dev -p1337:53/udp \
+        -v ./custom.conf:/etc/unbound/custom.conf tostr7191/unablocker:latest
+
 @log:
         docker logs -f unablocker_dev
 
